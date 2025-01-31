@@ -1,50 +1,8 @@
-# React + TypeScript + Vite
+### biome
+도입 목적
+- 코드 포맷팅
+도입 근거: 
+- 기존에는 ESlint, Prettier 조합을 사용하고 있었는데 세팅을 할때 마다 너무 많은 라이브러리 설치와 끊임없는 오류로 초기세팅에 소비하는 시간이 길었습니다.
+  biome을 사용하면 기존에 설치되던 많은 ESLint 라이브러리들을 biome 단 하나의 라이브러리로 대체할 수 있고, 초기 설정또한 매우 간편한 편입니다.
+  아직 사용량이 그렇게 많지 않아 레퍼런스가 적은 편이지만 설정하는데 어려움이 없고, 공식문서가 친절하게 나와있는 편이라 단점보다 장점이 큰 라이브러리라 도입을 결정하게 되었습니다.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
