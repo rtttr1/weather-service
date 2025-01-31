@@ -48,16 +48,21 @@
       "correctness": {
         "useExhaustiveDependencies": "off",
         "noUnusedImports": "warn",
-        "noUndeclaredDependencies": "off"
+        "noUndeclaredDependencies": "off",
+        "useImportExtensions": "off"
       },
       "performance": {
-        "noAccumulatingSpread": "off"
+        "noAccumulatingSpread": "off",
+        "noBarrelFile": "off"
       },
       "nursery": {
         "all": false
       },
       "security": {
         "noDangerouslySetInnerHtmlWithChildren": "error"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "off"
       }
     }
   },
