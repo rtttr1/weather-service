@@ -21,6 +21,8 @@ export const tabVariantStyle = recipe({
         fontWeight: '600',
         fontSize: '2rem',
         lineHeight: '2rem',
+
+        transitionDuration: '0.2s',
       },
     },
   },
@@ -30,7 +32,9 @@ export const tabActiveStyle = recipe({
   variants: {
     variant: {
       primary: {
-        borderBottom: '1px solid #0E121B',
+        paddingBottom: '1.2rem',
+
+        borderBottom: '2px solid #0E121B',
 
         color: '#0E121B',
       },

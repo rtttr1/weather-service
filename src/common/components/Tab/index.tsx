@@ -1,4 +1,10 @@
-export { default as Tab } from '@/common/components/Tab/Tab';
-export { default as TabList } from '@/common/components/Tab/TabList';
-export { default as TabPanel } from '@/common/components/Tab/TabPanel';
-export { default as TabRoot } from '@/common/components/Tab/Tabs';
+import TabButton from '@/common/components/Tab/TabButton';
+import TabList from '@/common/components/Tab/TabList';
+import TabPanel from '@/common/components/Tab/TabPanel';
+import TabContainer from '@/common/components/Tab/Tabs';
+
+export const Tab = Object.assign(TabContainer, {
+  Button: TabButton,
+  List: TabList,
+  Panel: TabPanel,
+});
