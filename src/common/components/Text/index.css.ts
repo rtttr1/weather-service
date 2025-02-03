@@ -2,7 +2,7 @@ import { recipe } from '@vanilla-extract/recipes';
 
 export const textStyle = recipe({
   variants: {
-    tag: {
+    fontTag: {
       b1: {
         fontWeight: '600',
         fontSize: '2rem',
