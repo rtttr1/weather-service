@@ -32,7 +32,7 @@ export const tabActiveStyle = recipe({
   variants: {
     variant: {
       primary: {
-        paddingBottom: '1.2rem',
+        paddingBottom: '1.rem',
 
         borderBottom: '2px solid #0E121B',
 

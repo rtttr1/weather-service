@@ -1,9 +1,16 @@
 import CurrentWeather from '@/components/CurrentWeather';
-import WeatherDataCard from '@/components/WeatherDataCard';
-import WeatherDataTab from '@/components/WeatherDataTab';
+import ForecastWeather from '@/components/ForecastWeather';
+
 import '@/styles/index.css';
+import { useState } from 'react';
 
 function App() {
+  const [selectedCity, setSelectedCity] = useState('Seoul');
+
+  const handleSelectedCity = (city: string) => {
+    setSelectedCity(city);
+  };
+
   return (
     <div
       style={{
@@ -14,8 +21,11 @@ function App() {
         gap: '6rem',
       }}
     >
-      <CurrentWeather />
-      <WeatherDataTab />
+      <CurrentWeather
+        selectedCity={selectedCity}
+        onSelectedCity={handleSelectedCity}
+      />
+      <ForecastWeather selectedCity={selectedCity} />
     </div>
   );
 }

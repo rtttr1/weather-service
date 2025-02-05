@@ -19,12 +19,21 @@ type currentWeatherTypes = {
   cloud: string;
 };
 
-const CurrentWeather = () => {
+interface CurrentWeatherProps {
+  selectedCity: string;
+  onSelectedCity: (city: string) => void;
+}
+const CurrentWeather = ({
+  selectedCity,
+  onSelectedCity,
+}: CurrentWeatherProps) => {
   const [currentWeather, setCurrentWeather] = useState<currentWeatherTypes>();
 
   useEffect(() => {
     fetch(
-      `${import.meta.env.VITE_WEATHER_API_BASE_URL}/current.json?q=Seoul&key=${
+      `${
+        import.meta.env.VITE_WEATHER_API_BASE_URL
+      }/current.json?q=${selectedCity}&key=${
         import.meta.env.VITE_WEATHER_API_KEY
       }`,
     )
@@ -44,11 +53,11 @@ const CurrentWeather = () => {
 
         setCurrentWeather(currentWeatherData);
       });
-  }, []);
+  }, [selectedCity]);
 
   return (
     <div className={containerStyle}>
-      <SearchCity />
+      <SearchCity onSelectedCity={onSelectedCity} />
       <img src={currentWeather?.iconUrl} width={200} alt="" />
       <div className={currentWeatherWrapper}>
         <Text fontTag="h1">{currentWeather?.temperature} C</Text>

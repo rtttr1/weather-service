@@ -10,10 +10,14 @@ import {
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useEffect, useState } from 'react';
 
-const SearchCity = () => {
+interface SearchCityProps {
+  onSelectedCity: (city: string) => void;
+}
+
+const SearchCity = ({ onSelectedCity }: SearchCityProps) => {
   const [city, setCity] = useState('');
   const [cityList, setCityList] = useState([]);
-  const [selectedCity, setSelectedCity] = useState('');
+
   const [open, setOpen] = useState(false);
 
   const handleInputChange = (value: string) => {
@@ -31,7 +35,7 @@ const SearchCity = () => {
   const ref = useOutsideClick(handleClose);
 
   const handleCityClick = (value: string) => {
-    setSelectedCity(value);
+    onSelectedCity(value);
     handleClose();
   };
 

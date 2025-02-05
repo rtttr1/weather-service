@@ -2,8 +2,19 @@ import { Tab } from '@/common/components/Tab';
 import WeeklyWeatherList from '@/components/WeeklyWeatherList';
 import { useState } from 'react';
 import HourlyWeatherList from '@/components/HourlyWeatherList';
+import type {
+  dateWeatherTypes,
+  hourWeatherTypes,
+} from '@/components/ForecastWeather';
 
-const WeatherDataTab = () => {
+interface WeatherDataTabProps {
+  hourlyWeatherList?: hourWeatherTypes[];
+  weeklyWeatherList?: dateWeatherTypes[];
+}
+const WeatherDataTab = ({
+  hourlyWeatherList,
+  weeklyWeatherList,
+}: WeatherDataTabProps) => {
   const [selectedTab, setSelectedTab] = useState(0);
 
   const handleTabClick = (tabId: number) => {
@@ -21,8 +32,8 @@ const WeatherDataTab = () => {
         <Tab.Button variant="primary">Week</Tab.Button>
       </Tab.List>
       <Tab.Panel selectedTab={selectedTab}>
-        <HourlyWeatherList />
-        <WeeklyWeatherList />
+        <HourlyWeatherList hourlyWeatherList={hourlyWeatherList} />
+        <WeeklyWeatherList weeklyWeatherList={weeklyWeatherList} />
       </Tab.Panel>
     </Tab>
   );
