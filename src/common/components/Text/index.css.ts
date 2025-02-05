@@ -3,6 +3,11 @@ import { recipe } from '@vanilla-extract/recipes';
 export const textStyle = recipe({
   variants: {
     fontTag: {
+      h1: {
+        fontWeight: '500',
+        fontSize: '8rem',
+        lineHeight: '8rem',
+      },
       b1: {
         fontWeight: '600',
         fontSize: '2rem',
