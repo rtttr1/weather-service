@@ -1,5 +1,3 @@
-import { IcSearch, IcSunny } from '@/assets/svg';
-import Input from '@/common/components/Input';
 import Text from '@/common/components/Text';
 import {
   containerStyle,
@@ -7,9 +5,9 @@ import {
   dateWrapperStyle,
   dividerStyle,
 } from '@/components/CurrentWeather/index.css';
+import SearchCity from '@/components/SearchCity';
+import { getDayOfWeek } from '@/utils';
 import { useEffect, useState } from 'react';
-
-interface CurrentWeatherProps {}
 
 type currentWeatherTypes = {
   locationName: string;
@@ -21,21 +19,7 @@ type currentWeatherTypes = {
   cloud: string;
 };
 
-const getDayOfWeek = (date: string) => {
-  const week = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ];
-
-  return week[new Date(date).getDay()];
-};
-
-const CurrentWeather = ({}: CurrentWeatherProps) => {
+const CurrentWeather = () => {
   const [currentWeather, setCurrentWeather] = useState<currentWeatherTypes>();
 
   useEffect(() => {
@@ -64,11 +48,7 @@ const CurrentWeather = ({}: CurrentWeatherProps) => {
 
   return (
     <div className={containerStyle}>
-      <Input
-        variant="primary"
-        placeholder={'seoul'}
-        prevIcon={<IcSearch width={16} />}
-      />
+      <SearchCity />
       <img src={currentWeather?.iconUrl} width={200} alt="" />
       <div className={currentWeatherWrapper}>
         <Text fontTag="h1">{currentWeather?.temperature} C</Text>
