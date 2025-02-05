@@ -8,6 +8,11 @@ export const textStyle = recipe({
         fontSize: '8rem',
         lineHeight: '8rem',
       },
+      h2: {
+        fontWeight: '500',
+        fontSize: '5rem',
+        lineHeight: '5rem',
+      },
       b1: {
         fontWeight: '600',
         fontSize: '2rem',

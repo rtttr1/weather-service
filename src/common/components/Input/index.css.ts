@@ -6,7 +6,7 @@ export const inputContainerStyle = recipe({
     variant: {
       primary: {
         padding: '1.2rem',
-
+        width: '100%',
         '&:has(input:focus)': {
           outline: '1px solid #99A1B2',
           borderRadius: '10px',

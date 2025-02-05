@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import type { ComponentPropsWithoutRef } from 'react';
 
 interface TextProps extends ComponentPropsWithoutRef<'p'> {
-  fontTag?: 'h1' | 'b1' | 'b2' | 'b3';
+  fontTag?: 'h1' | 'h2' | 'b1' | 'b2' | 'b3';
   color?: 'black' | 'gray';
 }
 
