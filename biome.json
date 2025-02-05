@@ -43,7 +43,8 @@
         "noConsoleLog": "off",
         "useAwait": "off",
         "noCommentText": "error",
-        "noDuplicateJsxProps": "error"
+        "noDuplicateJsxProps": "error",
+        "noReactSpecificProps": "off"
       },
       "correctness": {
         "useExhaustiveDependencies": "off",
