@@ -1,4 +1,3 @@
-import { IcSunny } from '@/assets/svg';
 import {
   containerStyle,
   temperatureWrapper,
@@ -10,19 +9,20 @@ interface CardProps {
   time?: string;
   weatherIconUrl?: string;
   highestTemperature: string | number;
-  lowestTemperature: string | number;
+  lowestTemperature?: string | number;
 }
 
 const WeatherDataCard = ({
-  day,
-  time,
+  day = '',
+  time = '',
+  weatherIconUrl,
   highestTemperature,
   lowestTemperature,
 }: CardProps) => {
   return (
     <li className={containerStyle}>
       <Text fontTag="b3">{day ? day : time}</Text>
-      <IcSunny width={40} height={40} />
+      <img src={weatherIconUrl} width={40} alt="" />
       <div className={temperatureWrapper}>
         <Text fontTag="b3">{highestTemperature}</Text>
         <Text fontTag="b3" color="gray">
