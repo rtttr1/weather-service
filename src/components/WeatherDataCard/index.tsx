@@ -25,9 +25,11 @@ const WeatherDataCard = ({
       <img src={weatherIconUrl} width={40} alt="" />
       <div className={temperatureWrapper}>
         <Text fontTag="b3">{highestTemperature}</Text>
-        <Text fontTag="b3" color="gray">
-          {lowestTemperature}
-        </Text>
+        {lowestTemperature && (
+          <Text fontTag="b3" color="gray">
+            {lowestTemperature}
+          </Text>
+        )}
       </div>
     </li>
   );

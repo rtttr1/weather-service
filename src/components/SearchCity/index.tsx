@@ -11,10 +11,11 @@ import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useEffect, useState } from 'react';
 
 interface SearchCityProps {
-  onSelectedCity: (city: string) => void;
+  handleSelectedCity: (city: string) => void;
+  handleCountry: (country: string) => void;
 }
 
-const SearchCity = ({ onSelectedCity }: SearchCityProps) => {
+const SearchCity = ({ handleSelectedCity, handleCountry }: SearchCityProps) => {
   const [city, setCity] = useState('');
   const [cityList, setCityList] = useState([]);
 
@@ -26,6 +27,7 @@ const SearchCity = ({ onSelectedCity }: SearchCityProps) => {
 
   const handleClose = () => {
     setOpen(false);
+    setCity('');
   };
 
   const handleOpen = () => {
@@ -34,8 +36,10 @@ const SearchCity = ({ onSelectedCity }: SearchCityProps) => {
 
   const ref = useOutsideClick(handleClose);
 
-  const handleCityClick = (value: string) => {
-    onSelectedCity(value);
+  const handleCityClick = (city: string, country: string) => {
+    handleSelectedCity(city);
+    handleCountry(country);
+    setCity('');
     handleClose();
   };
 
@@ -62,7 +66,7 @@ const SearchCity = ({ onSelectedCity }: SearchCityProps) => {
             <div
               key={`${index}-${data.name}`}
               className={searchedCityStyle}
-              onClick={() => handleCityClick(data.name)}
+              onClick={() => handleCityClick(data.name, data.country)}
             >
               <Text fontTag="b3" color="gray" className={cityListTextStyle}>
                 {data.name}
@@ -75,7 +79,7 @@ const SearchCity = ({ onSelectedCity }: SearchCityProps) => {
       </ul>
       <Input
         variant="primary"
-        placeholder={city}
+        placeholder={'Search for places...'}
         prevIcon={<IcSearch width={16} />}
         value={city}
         onChange={(e) => handleInputChange(e.target.value)}

@@ -4,7 +4,7 @@ export const textStyle = recipe({
   variants: {
     fontTag: {
       h1: {
-        fontWeight: '500',
+        fontWeight: '400',
         fontSize: '8rem',
         lineHeight: '8rem',
       },
@@ -28,6 +28,11 @@ export const textStyle = recipe({
         fontSize: '1.4rem',
         lineHeight: '1.4rem',
       },
+      b4: {
+        fontWeight: '600',
+        fontSize: '2.2rem',
+        lineHeight: '2.2rem',
+      },
     },
     color: {
       black: {
@@ -35,6 +40,9 @@ export const textStyle = recipe({
       },
       gray: {
         color: '#99A1B2',
+      },
+      white: {
+        color: '#FFFFFF',
       },
     },
   },

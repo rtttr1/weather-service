@@ -6,7 +6,8 @@ export const containerStyle = style({
   alignItems: 'center',
   gap: '1rem',
 
-  padding: '2.2rem 3rem',
+  width: '10rem',
+  padding: '2.2rem 0',
 
   backgroundColor: 'white',
   borderRadius: '10px',
@@ -14,5 +15,6 @@ export const containerStyle = style({
 
 export const temperatureWrapper = style({
   display: 'flex',
+
   gap: '1rem',
 });

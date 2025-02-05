@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-
+import cityImg from '@/assets/img/city.jpg';
 export const containerStyle = style({
   display: 'flex',
   flexDirection: 'column',
@@ -31,4 +31,17 @@ export const currentWeatherWrapper = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '4rem',
+});
+
+export const cityImageStyle = style({
+  position: 'relative',
+  backgroundImage: `url(${cityImg})`,
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+
+  width: '28rem',
+  height: '10rem',
+  padding: '4rem 3rem',
+
+  borderRadius: '10px',
 });

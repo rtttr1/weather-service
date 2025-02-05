@@ -23,7 +23,7 @@ function App() {
     >
       <CurrentWeather
         selectedCity={selectedCity}
-        onSelectedCity={handleSelectedCity}
+        handleSelectedCity={handleSelectedCity}
       />
       <ForecastWeather selectedCity={selectedCity} />
     </div>
