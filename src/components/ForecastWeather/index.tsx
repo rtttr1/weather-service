@@ -1,31 +1,17 @@
 import { containerStyle } from '@/components/ForecastWeather/index.css';
 import WeatherDataTab from '@/components/WeatherDataTab';
 import WeatherDetails from '@/components/WeatherDetails';
+import type {
+  dateWeatherTypes,
+  hourlyWeatherTypes,
+  weatherDetailsTypes,
+} from '@/types';
 import { getDayOfWeek } from '@/utils';
 import { useEffect, useState } from 'react';
 
 interface ForecastWeatherProps {
   selectedCity: string;
 }
-
-export type weatherDetailsTypes = {
-  uv: number;
-  humidity: number;
-  precipitation: number;
-};
-
-export type hourlyWeatherTypes = {
-  time: string;
-  temp_c: string;
-  iconUrl: string;
-};
-
-export type dateWeatherTypes = {
-  day: string;
-  maxtemp_c: string;
-  mintemp_c: string;
-  iconUrl: string;
-};
 
 const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
   const [weatherDetailData, setWeatherDetailData] = useState(
