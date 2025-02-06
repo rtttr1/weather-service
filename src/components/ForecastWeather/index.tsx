@@ -9,9 +9,9 @@ interface ForecastWeatherProps {
 }
 
 export type weatherDetailsTypes = {
-  uv: string;
-  humidity: string;
-  precipitation: string;
+  uv: number;
+  humidity: number;
+  precipitation: number;
 };
 
 export type hourWeatherTypes = {
@@ -28,11 +28,15 @@ export type dateWeatherTypes = {
 };
 
 const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
-  const [weatherDetailData, setWeatherDetailData] = useState<weatherDetailsTypes>();
-  const [hourlyWeatherList, setHourlyWeatherList] =
-    useState<hourWeatherTypes[]>();
-  const [weeklyWeatherList, setWeeklyWeatherList] =
-    useState<dateWeatherTypes[]>();
+  const [weatherDetailData, setWeatherDetailData] = useState(
+    {} as weatherDetailsTypes,
+  );
+  const [hourlyWeatherList, setHourlyWeatherList] = useState(
+    [] as hourWeatherTypes[],
+  );
+  const [weeklyWeatherList, setWeeklyWeatherList] = useState(
+    [] as dateWeatherTypes[],
+  );
 
   useEffect(() => {
     fetch(

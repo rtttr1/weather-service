@@ -3,13 +3,13 @@ import WeatherDataCard from '@/components/WeatherDataCard';
 import type { dateWeatherTypes } from '@/components/ForecastWeather';
 
 interface WeeklyWeatherListProps {
-  weeklyWeatherList?: dateWeatherTypes[];
+  weeklyWeatherList: dateWeatherTypes[];
 }
 
 const WeeklyWeatherList = ({ weeklyWeatherList }: WeeklyWeatherListProps) => {
   return (
     <ul className={containerStyle}>
-      {weeklyWeatherList?.map((data, index) => (
+      {weeklyWeatherList.map((data, index) => (
         <WeatherDataCard
           key={`${index}-${data.day}`}
           day={data.day}

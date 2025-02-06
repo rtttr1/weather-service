@@ -18,7 +18,7 @@ function App() {
         width: '100%',
         height: '100vh',
         display: 'flex',
-        gap: '6rem',
+        gap: '10rem',
       }}
     >
       <CurrentWeather

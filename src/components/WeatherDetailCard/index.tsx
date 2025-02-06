@@ -13,7 +13,6 @@ import { assignInlineVars } from '@vanilla-extract/dynamic';
 interface WeatherDetailCardProps {
   title?: string;
   figure?: string | number;
-  unit?: string;
 }
 
 const getCirclePosition = (percentage: number) => {
@@ -21,14 +20,14 @@ const getCirclePosition = (percentage: number) => {
   return `${position}px`;
 };
 
-const WeatherDetailCard = ({ title, figure, unit }: WeatherDetailCardProps) => {
+const WeatherDetailCard = ({ title, figure }: WeatherDetailCardProps) => {
   return (
     <div className={containerStyle}>
       <Text color="gray">{title}</Text>
       <div className={detailWrapper}>
         <div className={figureWrapper}>
           <Text fontTag="h2">{figure}</Text>
-          {unit && <Text fontTag="b2">{unit}</Text>}
+          <Text fontTag="b2">%</Text>
         </div>
         <div className={cylindricalStyle}>
           <div

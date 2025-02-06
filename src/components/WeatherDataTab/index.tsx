@@ -8,8 +8,8 @@ import type {
 } from '@/components/ForecastWeather';
 
 interface WeatherDataTabProps {
-  hourlyWeatherList?: hourWeatherTypes[];
-  weeklyWeatherList?: dateWeatherTypes[];
+  hourlyWeatherList: hourWeatherTypes[];
+  weeklyWeatherList: dateWeatherTypes[];
 }
 const WeatherDataTab = ({
   hourlyWeatherList,

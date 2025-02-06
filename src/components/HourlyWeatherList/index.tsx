@@ -3,13 +3,13 @@ import WeatherDataCard from '@/components/WeatherDataCard';
 import { containerStyle } from '@/components/WeeklyWeatherList/index.css';
 
 interface HourlyWeatherListProps {
-  hourlyWeatherList?: hourWeatherTypes[];
+  hourlyWeatherList: hourWeatherTypes[];
 }
 
 const HourlyWeatherList = ({ hourlyWeatherList }: HourlyWeatherListProps) => {
   return (
     <ul className={containerStyle}>
-      {hourlyWeatherList?.map((data, index) => (
+      {hourlyWeatherList.map((data, index) => (
         <WeatherDataCard
           key={`${index}-${data.time}`}
           time={data.time}

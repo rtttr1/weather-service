@@ -3,7 +3,7 @@ import { style } from '@vanilla-extract/css';
 export const containerStyle = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '5rem',
+  gap: '3rem',
 });
 
 export const titleStyle = style({
@@ -14,5 +14,5 @@ export const titleStyle = style({
 
 export const cardsWrapperStyle = style({
   display: 'flex',
-  gap: '3.4rem',
+  gap: '3.5rem',
 });
