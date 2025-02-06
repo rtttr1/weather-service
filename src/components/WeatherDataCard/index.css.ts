@@ -16,5 +16,5 @@ export const containerStyle = style({
 export const temperatureWrapper = style({
   display: 'flex',
 
-  gap: '1rem',
+  gap: '0.5rem',
 });

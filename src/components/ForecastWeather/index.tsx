@@ -14,7 +14,7 @@ export type weatherDetailsTypes = {
   precipitation: number;
 };
 
-export type hourWeatherTypes = {
+export type hourlyWeatherTypes = {
   time: string;
   temp_c: string;
   iconUrl: string;
@@ -32,9 +32,9 @@ const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
     {} as weatherDetailsTypes,
   );
   const [hourlyWeatherList, setHourlyWeatherList] = useState(
-    [] as hourWeatherTypes[],
+    [] as hourlyWeatherTypes[],
   );
-  const [weeklyWeatherList, setWeeklyWeatherList] = useState(
+  const [dailyWeatherList, setDailyWeatherList] = useState(
     [] as dateWeatherTypes[],
   );
 
@@ -74,7 +74,7 @@ const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
 
         setHourlyWeatherList(hourlyWeatherData);
 
-        const weeklyWeatherData = data.forecast.forecastday.map(
+        const dailyWeatherData = data.forecast.forecastday.map(
           (weatherData: {
             date: string;
             day: {
@@ -92,7 +92,7 @@ const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
           },
         );
 
-        setWeeklyWeatherList(weeklyWeatherData);
+        setDailyWeatherList(dailyWeatherData);
       });
   }, [selectedCity]);
 
@@ -100,7 +100,7 @@ const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
     <div className={containerStyle}>
       <WeatherDataTab
         hourlyWeatherList={hourlyWeatherList}
-        weeklyWeatherList={weeklyWeatherList}
+        dailyWeatherList={dailyWeatherList}
       />
       <WeatherDetails weatherDetailData={weatherDetailData} />
     </div>

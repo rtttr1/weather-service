@@ -3,31 +3,34 @@ import {
   temperatureWrapper,
 } from '@/components/WeatherDataCard/index.css';
 import Text from '@/common/components/Text';
+import { DEGREES_CELSIUS } from '@/constants';
 
 interface CardProps {
-  day?: string;
-  time?: string;
-  weatherIconUrl?: string;
-  highestTemperature: string | number;
-  lowestTemperature?: string | number;
+  weatherTime: string;
+  weatherIconUrl: string;
+  firstTemperature: string;
+  secondTemperature?: string;
 }
 
 const WeatherDataCard = ({
-  day = '',
-  time = '',
+  weatherTime,
   weatherIconUrl,
-  highestTemperature,
-  lowestTemperature,
+  firstTemperature,
+  secondTemperature,
 }: CardProps) => {
   return (
     <li className={containerStyle}>
-      <Text fontTag="b3">{day ? day : time}</Text>
-      <img src={weatherIconUrl} width={40} alt="" />
+      <Text fontTag="b3">{weatherTime}</Text>
+      <img src={weatherIconUrl} width={40} alt="날씨 정보 i" />
       <div className={temperatureWrapper}>
-        <Text fontTag="b3">{highestTemperature}</Text>
-        {lowestTemperature && (
+        <Text fontTag="b3">
+          {firstTemperature}
+          {DEGREES_CELSIUS}
+        </Text>
+        {secondTemperature && (
           <Text fontTag="b3" color="gray">
-            {lowestTemperature}
+            {secondTemperature}
+            {DEGREES_CELSIUS}
           </Text>
         )}
       </div>

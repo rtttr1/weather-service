@@ -1,9 +1,9 @@
-import type { hourWeatherTypes } from '@/components/ForecastWeather';
+import type { hourlyWeatherTypes } from '@/components/ForecastWeather';
 import WeatherDataCard from '@/components/WeatherDataCard';
-import { containerStyle } from '@/components/WeeklyWeatherList/index.css';
+import { containerStyle } from '@/components/DailyWeatherList/index.css';
 
 interface HourlyWeatherListProps {
-  hourlyWeatherList: hourWeatherTypes[];
+  hourlyWeatherList: hourlyWeatherTypes[];
 }
 
 const HourlyWeatherList = ({ hourlyWeatherList }: HourlyWeatherListProps) => {
@@ -12,9 +12,9 @@ const HourlyWeatherList = ({ hourlyWeatherList }: HourlyWeatherListProps) => {
       {hourlyWeatherList.map((data, index) => (
         <WeatherDataCard
           key={`${index}-${data.time}`}
-          time={data.time}
+          weatherTime={data.time}
           weatherIconUrl={data.iconUrl}
-          highestTemperature={data.temp_c}
+          firstTemperature={data.temp_c}
         />
       ))}
     </ul>

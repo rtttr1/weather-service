@@ -21,8 +21,6 @@ export const tabVariantStyle = recipe({
         fontWeight: '600',
         fontSize: '2rem',
         lineHeight: '2rem',
-
-        transitionDuration: '0.2s',
       },
     },
   },
