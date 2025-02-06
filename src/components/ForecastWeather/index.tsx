@@ -31,12 +31,10 @@ const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
   const [weatherDetailData, setWeatherDetailData] = useState(
     {} as weatherDetailsTypes,
   );
-  const [hourlyWeatherList, setHourlyWeatherList] = useState(
+  const [hourlyWeathers, setHourlyWeathers] = useState(
     [] as hourlyWeatherTypes[],
   );
-  const [dailyWeatherList, setDailyWeatherList] = useState(
-    [] as dateWeatherTypes[],
-  );
+  const [dailyWeathers, setDailyWeathers] = useState([] as dateWeatherTypes[]);
 
   useEffect(() => {
     fetch(
@@ -72,7 +70,7 @@ const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
           },
         );
 
-        setHourlyWeatherList(hourlyWeatherData);
+        setHourlyWeathers(hourlyWeatherData);
 
         const dailyWeatherData = data.forecast.forecastday.map(
           (weatherData: {
@@ -92,15 +90,15 @@ const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
           },
         );
 
-        setDailyWeatherList(dailyWeatherData);
+        setDailyWeathers(dailyWeatherData);
       });
   }, [selectedCity]);
 
   return (
     <div className={containerStyle}>
       <WeatherDataTab
-        hourlyWeatherList={hourlyWeatherList}
-        dailyWeatherList={dailyWeatherList}
+        hourlyWeathers={hourlyWeathers}
+        dailyWeathers={dailyWeathers}
       />
       <WeatherDetails weatherDetailData={weatherDetailData} />
     </div>

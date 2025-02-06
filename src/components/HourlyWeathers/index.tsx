@@ -1,15 +1,15 @@
 import type { hourlyWeatherTypes } from '@/components/ForecastWeather';
 import WeatherDataCard from '@/components/WeatherDataCard';
-import { containerStyle } from '@/components/DailyWeatherList/index.css';
+import { containerStyle } from '@/components/DailyWeathers/index.css';
 
-interface HourlyWeatherListProps {
-  hourlyWeatherList: hourlyWeatherTypes[];
+interface HourlyWeathersProps {
+  hourlyWeathers: hourlyWeatherTypes[];
 }
 
-const HourlyWeatherList = ({ hourlyWeatherList }: HourlyWeatherListProps) => {
+const HourlyWeathers = ({ hourlyWeathers }: HourlyWeathersProps) => {
   return (
     <ul className={containerStyle}>
-      {hourlyWeatherList.map((data, index) => (
+      {hourlyWeathers.map((data, index) => (
         <WeatherDataCard
           key={`${index}-${data.time}`}
           weatherTime={data.time}
@@ -21,4 +21,4 @@ const HourlyWeatherList = ({ hourlyWeatherList }: HourlyWeatherListProps) => {
   );
 };
 
-export default HourlyWeatherList;
+export default HourlyWeathers;

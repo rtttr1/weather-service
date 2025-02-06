@@ -1,15 +1,15 @@
-import { containerStyle } from '@/components/DailyWeatherList/index.css';
+import { containerStyle } from '@/components/DailyWeathers/index.css';
 import WeatherDataCard from '@/components/WeatherDataCard';
 import type { dateWeatherTypes } from '@/components/ForecastWeather';
 
-interface DailyWeatherListProps {
-  DailyWeatherList: dateWeatherTypes[];
+interface DailyWeathersProps {
+  DailyWeathers: dateWeatherTypes[];
 }
 
-const DailyWeatherList = ({ DailyWeatherList }: DailyWeatherListProps) => {
+const DailyWeathers = ({ DailyWeathers }: DailyWeathersProps) => {
   return (
     <ul className={containerStyle}>
-      {DailyWeatherList.map((data, index) => (
+      {DailyWeathers.map((data, index) => (
         <WeatherDataCard
           key={`${index}-${data.day}`}
           weatherTime={data.day}
@@ -22,4 +22,4 @@ const DailyWeatherList = ({ DailyWeatherList }: DailyWeatherListProps) => {
   );
 };
 
-export default DailyWeatherList;
+export default DailyWeathers;

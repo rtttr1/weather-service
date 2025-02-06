@@ -1,20 +1,20 @@
 import { Tab } from '@/common/components/Tab';
-import DailyWeatherList from '@/components/DailyWeatherList';
+import DailyWeatherList from '@/components/DailyWeathers';
 import { useState } from 'react';
-import HourlyWeatherList from '@/components/HourlyWeatherList';
+import HourlyWeatherList from '@/components/HourlyWeathers';
 import type {
   dateWeatherTypes,
   hourlyWeatherTypes,
 } from '@/components/ForecastWeather';
 
 interface WeatherDataTabProps {
-  hourlyWeatherList: hourlyWeatherTypes[];
-  dailyWeatherList: dateWeatherTypes[];
+  hourlyWeathers: hourlyWeatherTypes[];
+  dailyWeathers: dateWeatherTypes[];
 }
 
 const WeatherDataTab = ({
-  hourlyWeatherList,
-  dailyWeatherList,
+  hourlyWeathers,
+  dailyWeathers,
 }: WeatherDataTabProps) => {
   const [selectedTab, setSelectedTab] = useState(0);
 
@@ -33,8 +33,8 @@ const WeatherDataTab = ({
         <Tab.Button variant="primary">Week</Tab.Button>
       </Tab.List>
       <Tab.Panel selectedTab={selectedTab}>
-        <HourlyWeatherList hourlyWeatherList={hourlyWeatherList} />
-        <DailyWeatherList DailyWeatherList={dailyWeatherList} />
+        <HourlyWeatherList hourlyWeathers={hourlyWeathers} />
+        <DailyWeatherList DailyWeathers={dailyWeathers} />
       </Tab.Panel>
     </Tab>
   );
