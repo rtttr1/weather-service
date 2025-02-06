@@ -6,6 +6,12 @@ export const containerStyle = style({
   gap: '5rem',
 });
 
+export const titleStyle = style({
+  fontWeight: '600',
+  fontSize: '2rem',
+  lineHeight: '2rem',
+});
+
 export const cardsWrapperStyle = style({
   display: 'flex',
   gap: '3.4rem',

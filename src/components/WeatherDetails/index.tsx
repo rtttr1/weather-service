@@ -1,34 +1,41 @@
-import Text from '@/common/components/Text';
 import {
   containerStyle,
   cardsWrapperStyle,
+  titleStyle,
 } from '@/components/WeatherDetails/index.css';
 
 import WeatherDetailCard from '@/components/WeatherDetailCard';
 import type { weatherDetailsTypes } from '@/components/ForecastWeather';
 
 interface WeatherDetailsProps {
-  weatherDetails?: weatherDetailsTypes;
+  weatherDetailData?: weatherDetailsTypes;
 }
 
-const WeatherDetails = ({ weatherDetails }: WeatherDetailsProps) => {
+const calculateUVPercent = (uv?: string | number) => {
+  return Number(uv) * 100;
+};
+
+const WeatherDetails = ({ weatherDetailData }: WeatherDetailsProps) => {
   return (
-    <div className={containerStyle}>
-      <Text fontTag="b1">Today's Details</Text>
+    <section className={containerStyle}>
+      <h2 className={titleStyle}>Today's Details</h2>
       <div className={cardsWrapperStyle}>
-        <WeatherDetailCard title="UV" figure={weatherDetails?.uv} />
+        <WeatherDetailCard
+          title="UV"
+          figure={50}
+        />
         <WeatherDetailCard
           title="Humidity"
-          figure={weatherDetails?.humidity}
+          figure={100}
           unit="%"
         />
         <WeatherDetailCard
           title="Precipitation"
-          figure={weatherDetails?.precipitation}
+          figure={0}
           unit="%"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

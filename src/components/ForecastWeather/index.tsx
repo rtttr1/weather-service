@@ -28,7 +28,7 @@ export type dateWeatherTypes = {
 };
 
 const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
-  const [weatherDetails, setWeatherDetails] = useState<weatherDetailsTypes>();
+  const [weatherDetailData, setWeatherDetailData] = useState<weatherDetailsTypes>();
   const [hourlyWeatherList, setHourlyWeatherList] =
     useState<hourWeatherTypes[]>();
   const [weeklyWeatherList, setWeeklyWeatherList] =
@@ -52,7 +52,7 @@ const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
           precipitation: data.forecast.forecastday[0].day.daily_chance_of_rain,
         };
 
-        setWeatherDetails(weatherDetailsData);
+        setWeatherDetailData(weatherDetailsData);
 
         const hourlyWeatherData = data.forecast.forecastday[0].hour.map(
           (weatherData: {
@@ -98,7 +98,7 @@ const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
         hourlyWeatherList={hourlyWeatherList}
         weeklyWeatherList={weeklyWeatherList}
       />
-      <WeatherDetails weatherDetails={weatherDetails} />
+      <WeatherDetails weatherDetailData={weatherDetailData} />
     </div>
   );
 };
