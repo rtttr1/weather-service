@@ -31,3 +31,13 @@ export type dailyWeatherResponseTypes = {
     condition: { icon: string };
   };
 };
+
+export type searchResponseTypes = {
+  id: number;
+  name: string;
+  region: string;
+  country: string;
+  lat: number;
+  lon: number;
+  url: string;
+};
