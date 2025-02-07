@@ -4,6 +4,8 @@ export const containerStyle = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '3rem',
+
+  width: '100%',
 });
 
 export const titleStyle = style({
@@ -15,4 +17,7 @@ export const titleStyle = style({
 export const cardsWrapperStyle = style({
   display: 'flex',
   gap: '3.5rem',
+  flexWrap: 'wrap',
+
+  width: '100%',
 });

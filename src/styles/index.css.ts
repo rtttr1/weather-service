@@ -11,7 +11,7 @@ export const containerStyle = style({
   backgroundColor: '#F2F0FE',
 
   '@media': {
-    'screen and (max-width: 480px)': {
+    'screen and (max-width: 640px)': {
       flexDirection: 'column',
     },
   },

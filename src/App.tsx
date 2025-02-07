@@ -2,6 +2,7 @@ import CurrentWeather from '@/components/CurrentWeather';
 import ForecastWeather from '@/components/ForecastWeather';
 
 import '@/styles/index.css';
+import { containerStyle } from '@/styles/index.css';
 import { useState } from 'react';
 
 function App() {
@@ -12,15 +13,7 @@ function App() {
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: '#F2F0FE',
-        width: '100%',
-        height: '100vh',
-        display: 'flex',
-        gap: '10rem',
-      }}
-    >
+    <div className={containerStyle}>
       <CurrentWeather
         selectedCity={selectedCity}
         handleSelectedCity={handleSelectedCity}
