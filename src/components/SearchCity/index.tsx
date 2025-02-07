@@ -14,6 +14,7 @@ import type { searchResponseTypes } from '@/types';
 import type { KeyboardEvent } from 'react';
 import Text from '@/common/components/Text';
 import fetchCities from '@/api/fetchCities';
+import { useToast } from '@sopt-makers/ui';
 
 interface SearchCityProps {
   handleSelectedCity: (city: string) => void;
@@ -25,6 +26,8 @@ const SearchCity = ({ handleSelectedCity, handleCountry }: SearchCityProps) => {
   const [open, setOpen] = useState(false);
 
   const { serachedCities } = fetchCities(city);
+
+  const { open: toastOpen } = useToast();
 
   const handleInputChange = (value: string) => {
     setCity(value);
@@ -45,6 +48,7 @@ const SearchCity = ({ handleSelectedCity, handleCountry }: SearchCityProps) => {
     handleCountry(country);
     setCity('');
     handleSearchClose();
+    toastOpen({ content: '도시 검색이 완료되었습니다.', icon: 'success' });
   };
 
   const handleEnterKeyDown = (
