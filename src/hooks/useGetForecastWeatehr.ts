@@ -38,15 +38,19 @@ const useGetForecastWeather = (selectedCity: string) => {
 
         setWeatherDetailData(weatherDetailsData);
 
-        const hourlyWeatherData = weatherData.forecast.forecastday[0].hour.map(
-          (data: hourlyWeatherResponseTypes) => {
+        const hourlyWeatherData = weatherData.forecast.forecastday
+          .flatMap((data: { hour: hourlyWeatherResponseTypes }) => data.hour)
+          .filter(
+            (_: hourlyWeatherResponseTypes, index: number) =>
+              index % 4 === 0 && index < 28,
+          )
+          .map((data: hourlyWeatherResponseTypes) => {
             return {
               time: data.time.split(' ')[1],
               temp_c: data.temp_c,
               iconUrl: data.condition.icon,
             };
-          },
-        );
+          });
 
         setHourlyWeathers(hourlyWeatherData);
 
