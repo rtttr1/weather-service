@@ -41,3 +41,13 @@ export type searchResponseTypes = {
   lon: number;
   url: string;
 };
+
+export type currentWeatherResponseTypes = {
+  locationName: string;
+  iconUrl: string;
+  temperature: string;
+  day: string;
+  time: string;
+  precipitation: string;
+  cloud: string;
+};
