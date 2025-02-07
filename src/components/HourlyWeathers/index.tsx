@@ -1,5 +1,6 @@
 import WeatherDataCard from '@/components/WeatherDataCard';
 import { containerStyle } from '@/components/DailyWeathers/index.css';
+
 import type { hourlyWeatherTypes } from '@/types';
 
 interface HourlyWeathersProps {

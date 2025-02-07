@@ -1,7 +1,6 @@
-/* eslint-disable import/no-named-as-default-member */
 import React, { cloneElement } from 'react';
-import type { ComponentPropsWithoutRef, ReactElement } from 'react';
 import { tabListStyle } from '@/common/components/Tab/index.css';
+import type { ComponentPropsWithoutRef, ReactElement } from 'react';
 
 interface TabListProps extends ComponentPropsWithoutRef<'ul'> {
   variant: 'primary';

@@ -6,15 +6,14 @@ import {
   containerStyle,
   searchTextStyle,
 } from '@/components/SearchCity/index.css';
-
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useState } from 'react';
-
-import type { searchResponseTypes } from '@/types';
-import type { KeyboardEvent } from 'react';
 import Text from '@/common/components/Text';
 import fetchCities from '@/api/fetchCities';
 import { useToast } from '@sopt-makers/ui';
+
+import type { searchResponseTypes } from '@/types';
+import type { KeyboardEvent } from 'react';
 
 interface SearchCityProps {
   handleSelectedCity: (city: string) => void;

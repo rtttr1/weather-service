@@ -2,6 +2,7 @@ import { Tab } from '@/common/components/Tab';
 import DailyWeatherList from '@/components/DailyWeathers';
 import { useState } from 'react';
 import HourlyWeatherList from '@/components/HourlyWeathers';
+
 import type { dateWeatherTypes, hourlyWeatherTypes } from '@/types/index';
 
 interface WeatherDataTabProps {

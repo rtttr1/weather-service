@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import cityImg from '@/assets/img/city.jpg';
+
 export const containerStyle = style({
   display: 'flex',
   flexDirection: 'column',

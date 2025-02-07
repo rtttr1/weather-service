@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 const fetchCities = (city: string) => {
   const [serachedCities, setSerachedCities] = useState([]);
+
   const cityApiUrl = `${
     import.meta.env.VITE_WEATHER_API_BASE_URL
   }/search.json?q=${city}&key=${import.meta.env.VITE_WEATHER_API_KEY}`;

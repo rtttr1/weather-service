@@ -1,11 +1,10 @@
-import type { ComponentPropsWithoutRef } from 'react';
-
 import {
   tabActiveStyle,
   tabDefaultStyle,
   tabVariantStyle,
 } from '@/common/components/Tab/index.css';
 import clsx from 'clsx';
+import type { ComponentPropsWithoutRef } from 'react';
 
 export interface TabProps extends ComponentPropsWithoutRef<'button'> {
   tabId?: number;

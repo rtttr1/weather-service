@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getDayOfWeek } from '@/utils';
 import type {
   dailyWeatherResponseTypes,
   dateWeatherTypes,
@@ -6,7 +7,6 @@ import type {
   hourlyWeatherTypes,
   weatherDetailsTypes,
 } from '@/types';
-import { getDayOfWeek } from '@/utils';
 
 const fetchForecastWeather = (selectedCity: string) => {
   const [weatherDetailData, setWeatherDetailData] = useState(
