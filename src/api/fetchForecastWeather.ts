@@ -8,7 +8,7 @@ import type {
 } from '@/types';
 import { getDayOfWeek } from '@/utils';
 
-const useGetForecastWeather = (selectedCity: string) => {
+const fetchForecastWeather = (selectedCity: string) => {
   const [weatherDetailData, setWeatherDetailData] = useState(
     {} as weatherDetailsTypes,
   );
@@ -17,14 +17,14 @@ const useGetForecastWeather = (selectedCity: string) => {
   );
   const [dailyWeathers, setDailyWeathers] = useState([] as dateWeatherTypes[]);
 
+  const forecastApiUrl = `${
+    import.meta.env.VITE_WEATHER_API_BASE_URL
+  }/forecast.json?q=${selectedCity}&days=7&key=${
+    import.meta.env.VITE_WEATHER_API_KEY
+  }`;
+
   useEffect(() => {
-    fetch(
-      `${
-        import.meta.env.VITE_WEATHER_API_BASE_URL
-      }/forecast.json?q=${selectedCity}&days=7&key=${
-        import.meta.env.VITE_WEATHER_API_KEY
-      }`,
-    )
+    fetch(forecastApiUrl)
       .then((response) => {
         return response.json();
       })
@@ -76,4 +76,4 @@ const useGetForecastWeather = (selectedCity: string) => {
   };
 };
 
-export default useGetForecastWeather;
+export default fetchForecastWeather;

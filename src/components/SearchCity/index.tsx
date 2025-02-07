@@ -1,14 +1,18 @@
 import { IcSearch } from '@/assets/svg';
 import Input from '@/common/components/Input';
-import Text from '@/common/components/Text';
 import {
   cityListTextStyle,
   cityListWrapperStyle,
   containerStyle,
-  searchedCityStyle,
+  searchTextStyle,
 } from '@/components/SearchCity/index.css';
+import useGetCities from '@/hooks/useGetCities';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+
+import type { searchResponseTypes } from '@/types';
+import type { KeyboardEvent } from 'react';
+import Text from '@/common/components/Text';
 
 interface SearchCityProps {
   handleSelectedCity: (city: string) => void;
@@ -17,64 +21,65 @@ interface SearchCityProps {
 
 const SearchCity = ({ handleSelectedCity, handleCountry }: SearchCityProps) => {
   const [city, setCity] = useState('');
-  const [cityList, setCityList] = useState([]);
-
   const [open, setOpen] = useState(false);
+
+  const { serachedCities } = useGetCities(city);
 
   const handleInputChange = (value: string) => {
     setCity(value);
   };
 
-  const handleClose = () => {
+  const handleSearchClose = () => {
     setOpen(false);
     setCity('');
   };
 
-  const handleOpen = () => {
+  const handleSearchOpen = () => {
     setOpen(true);
+    setCity('');
   };
-
-  const ref = useOutsideClick(handleClose);
 
   const handleCityClick = (city: string, country: string) => {
     handleSelectedCity(city);
     handleCountry(country);
     setCity('');
-    handleClose();
+    handleSearchClose();
   };
 
-  useEffect(() => {
-    if (!city) return;
+  const handleEnterKeyDown = (
+    e: KeyboardEvent<HTMLButtonElement>,
+    city: string,
+    country: string,
+  ) => {
+    if (e.key === 'Enter') {
+      handleCityClick(city, country);
+    }
+  };
 
-    fetch(
-      `${import.meta.env.VITE_WEATHER_API_BASE_URL}/search.json?q=${city}&key=${
-        import.meta.env.VITE_WEATHER_API_KEY
-      }`,
-    )
-      .then((response) => {
-        return response.json(); // response에 저장되어있는 JSon 메서드를 사용하여 json 객체 자동변환 가능
-      })
-      .then((data) => setCityList(data));
-  }, [city]);
+  const ref = useOutsideClick(handleSearchClose);
 
   return (
     <div className={containerStyle} ref={ref}>
       <ul className={cityListWrapperStyle({ open })}>
-        {cityList.length !== 0 ? (
-          cityList?.map((data, index) => (
-            // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
-            <div
-              key={`${index}-${data.name}`}
-              className={searchedCityStyle}
-              onClick={() => handleCityClick(data.name, data.country)}
-            >
-              <Text fontTag="b3" color="gray" className={cityListTextStyle}>
+        {serachedCities.length > 0 ? (
+          serachedCities?.map((data: searchResponseTypes, index) => (
+            <li key={`${index}-${data.name}`}>
+              <button
+                type="button"
+                onClick={() => handleCityClick(data.name, data.country)}
+                onKeyDown={(e) =>
+                  handleEnterKeyDown(e, data.name, data.country)
+                }
+                className={cityListTextStyle}
+              >
                 {data.name}
-              </Text>
-            </div>
+              </button>
+            </li>
           ))
         ) : (
-          <div>빈칸</div>
+          <Text fontTag="b3" color="gray" className={searchTextStyle}>
+            Search for the name of the city{' '}
+          </Text>
         )}
       </ul>
       <Input
@@ -83,7 +88,7 @@ const SearchCity = ({ handleSelectedCity, handleCountry }: SearchCityProps) => {
         prevIcon={<IcSearch width={16} />}
         value={city}
         onChange={(e) => handleInputChange(e.target.value)}
-        onFocus={handleOpen}
+        onFocus={handleSearchOpen}
       />
     </div>
   );

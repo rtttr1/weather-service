@@ -19,7 +19,7 @@ export const cityListWrapperStyle = recipe({
     height: '20rem',
     padding: '1rem',
 
-    border: '1px solid gray',
+    border: '1px solid #99A1B2',
     borderRadius: '10px',
     backgroundColor: '#ffffff',
 
@@ -37,20 +37,28 @@ export const cityListWrapperStyle = recipe({
   },
 });
 
-export const searchedCityStyle = style({
+export const cityListTextStyle = style({
+  width: '100%',
   padding: '1rem',
 
   borderRadius: '10px',
 
+  textAlign: 'left',
+  fontWeight: '400',
+  fontSize: '1.4rem',
+  lineHeight: '1.4rem',
+  color: '#99A1B2',
+
   cursor: 'pointer',
 
   selectors: {
-    '&:hover': {
+    '&:hover, &:focus': {
       backgroundColor: '#F8F8FB',
     },
   },
 });
 
-export const cityListTextStyle = style({
-  width: '26rem',
+export const searchTextStyle = style({
+  width: '100%',
+  padding: '1rem',
 });

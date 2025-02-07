@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
 
-const useGetCities = (city: string) => {
+const fetchCities = (city: string) => {
   const [serachedCities, setSerachedCities] = useState([]);
+  const cityApiUrl = `${
+    import.meta.env.VITE_WEATHER_API_BASE_URL
+  }/search.json?q=${city}&key=${import.meta.env.VITE_WEATHER_API_KEY}`;
 
   useEffect(() => {
     if (!city) return;
 
-    fetch(
-      `${import.meta.env.VITE_WEATHER_API_BASE_URL}/search.json?q=${city}&key=${
-        import.meta.env.VITE_WEATHER_API_KEY
-      }`,
-    )
+    fetch(cityApiUrl)
       .then((response) => {
         return response.json();
       })
@@ -20,4 +19,4 @@ const useGetCities = (city: string) => {
   return { serachedCities };
 };
 
-export default useGetCities;
+export default fetchCities;
