@@ -5,7 +5,7 @@ import {
 } from '@/components/WeatherDetails/index.css';
 
 import WeatherDetailCard from '@/components/WeatherDetailCard';
-import type { weatherDetailsTypes } from '@/components/ForecastWeather';
+import type { weatherDetailsTypes } from '@/types';
 
 interface WeatherDetailsProps {
   weatherDetailData: weatherDetailsTypes;

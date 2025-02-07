@@ -1,7 +1,7 @@
+import fetchForecastWeather from '@/api/fetchForecastWeather';
 import { containerStyle } from '@/components/ForecastWeather/index.css';
 import WeatherDataTab from '@/components/WeatherDataTab';
 import WeatherDetails from '@/components/WeatherDetails';
-import useGetForecastWeather from '@/hooks/useGetForecastWeatehr';
 
 interface ForecastWeatherProps {
   selectedCity: string;
@@ -9,7 +9,7 @@ interface ForecastWeatherProps {
 
 const ForecastWeather = ({ selectedCity }: ForecastWeatherProps) => {
   const { weatherDetailData, hourlyWeathers, dailyWeathers } =
-    useGetForecastWeather(selectedCity);
+    fetchForecastWeather(selectedCity);
   return (
     <div className={containerStyle}>
       <WeatherDataTab

@@ -6,13 +6,14 @@ import {
   containerStyle,
   searchTextStyle,
 } from '@/components/SearchCity/index.css';
-import useGetCities from '@/hooks/useGetCities';
+
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useState } from 'react';
 
 import type { searchResponseTypes } from '@/types';
 import type { KeyboardEvent } from 'react';
 import Text from '@/common/components/Text';
+import fetchCities from '@/api/fetchCities';
 
 interface SearchCityProps {
   handleSelectedCity: (city: string) => void;
@@ -23,7 +24,7 @@ const SearchCity = ({ handleSelectedCity, handleCountry }: SearchCityProps) => {
   const [city, setCity] = useState('');
   const [open, setOpen] = useState(false);
 
-  const { serachedCities } = useGetCities(city);
+  const { serachedCities } = fetchCities(city);
 
   const handleInputChange = (value: string) => {
     setCity(value);
