@@ -7,7 +7,6 @@ import {
   detailWrapper,
   figureWrapper,
 } from '@/components/WeatherDetailCard/index.css';
-
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 interface WeatherDetailCardProps {

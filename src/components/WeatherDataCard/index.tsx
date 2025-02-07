@@ -21,7 +21,7 @@ const WeatherDataCard = ({
   return (
     <li className={containerStyle}>
       <Text fontTag="b3">{weatherTime}</Text>
-      <img src={weatherIconUrl} width={40} alt="날씨 정보 i" />
+      <img src={weatherIconUrl} width={40} alt="날씨 정보 아이콘" />
       <div className={temperatureWrapper}>
         <Text fontTag="b3">
           {firstTemperature}

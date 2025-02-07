@@ -36,8 +36,6 @@ const fetchForecastWeather = (selectedCity: string) => {
             weatherData.forecast.forecastday[0].day.daily_chance_of_rain,
         };
 
-        setWeatherDetailData(weatherDetailsData);
-
         const hourlyWeatherData = weatherData.forecast.forecastday
           .flatMap((data: { hour: hourlyWeatherResponseTypes }) => data.hour)
           .filter(
@@ -52,8 +50,6 @@ const fetchForecastWeather = (selectedCity: string) => {
             };
           });
 
-        setHourlyWeathers(hourlyWeatherData);
-
         const dailyWeatherData = weatherData.forecast.forecastday.map(
           (data: dailyWeatherResponseTypes) => {
             return {
@@ -65,6 +61,8 @@ const fetchForecastWeather = (selectedCity: string) => {
           },
         );
 
+        setWeatherDetailData(weatherDetailsData);
+        setHourlyWeathers(hourlyWeatherData);
         setDailyWeathers(dailyWeatherData);
       });
   }, [selectedCity]);
