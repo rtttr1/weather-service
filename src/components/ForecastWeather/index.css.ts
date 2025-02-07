@@ -5,6 +5,14 @@ export const containerStyle = style({
   flexDirection: 'column',
   gap: '10rem',
 
-  width: 'calc(100% - 50rem)',
+  paddingLeft: '10rem',
+  width: 'calc(100% - 40rem)',
+
   marginTop: '6rem',
+
+  '@media': {
+    'screen and (max-width: 640px)': {
+      width: '100%',
+    },
+  },
 });

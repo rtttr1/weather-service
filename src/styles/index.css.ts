@@ -4,7 +4,6 @@ import { style } from '@vanilla-extract/css';
 
 export const containerStyle = style({
   display: 'flex',
-  gap: '10rem',
 
   width: '100%',
   height: '100%',
