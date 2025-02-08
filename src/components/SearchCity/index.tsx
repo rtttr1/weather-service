@@ -45,8 +45,8 @@ const SearchCity = ({ handleSelectedCity, handleCountry }: SearchCityProps) => {
   const handleCityClick = (city: string, country: string) => {
     handleSelectedCity(city);
     handleCountry(country);
-    setCity('');
     handleSearchClose();
+    setCity('');
     toastOpen({ content: '도시 검색이 완료되었습니다.', icon: 'success' });
   };
 
@@ -64,6 +64,14 @@ const SearchCity = ({ handleSelectedCity, handleCountry }: SearchCityProps) => {
 
   return (
     <div className={containerStyle} ref={ref}>
+      <Input
+        variant="primary"
+        placeholder={'Search for places...'}
+        prevIcon={<IcSearch width={16} />}
+        value={city}
+        onChange={(e) => handleInputChange(e.target.value)}
+        onFocus={handleSearchOpen}
+      />
       <ul className={cityListWrapperStyle({ open })}>
         {serachedCities.length > 0 ? (
           serachedCities?.map((data: searchResponseTypes, index) => (
@@ -86,14 +94,6 @@ const SearchCity = ({ handleSelectedCity, handleCountry }: SearchCityProps) => {
           </Text>
         )}
       </ul>
-      <Input
-        variant="primary"
-        placeholder={'Search for places...'}
-        prevIcon={<IcSearch width={16} />}
-        value={city}
-        onChange={(e) => handleInputChange(e.target.value)}
-        onFocus={handleSearchOpen}
-      />
     </div>
   );
 };
