@@ -14,6 +14,7 @@ import { useToast } from '@sopt-makers/ui';
 
 import type { searchResponseTypes } from '@/types';
 import type { KeyboardEvent } from 'react';
+import { useDebounce } from '@/hooks/useDebounce';
 
 interface SearchCityProps {
   handleSelectedCity: (city: string) => void;
@@ -22,9 +23,12 @@ interface SearchCityProps {
 
 const SearchCity = ({ handleSelectedCity, handleCountry }: SearchCityProps) => {
   const [city, setCity] = useState('');
+
+  const selectedCity = useDebounce(city, 500);
+
   const [open, setOpen] = useState(false);
 
-  const { serachedCities } = fetchCities(city);
+  const { serachedCities } = fetchCities(selectedCity);
 
   const { open: toastOpen } = useToast();
 
